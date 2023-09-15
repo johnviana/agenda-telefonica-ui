@@ -8,15 +8,8 @@ import { ContatoService } from './contato-pesquisa/contato.service';
 })
 export class AppComponent implements OnInit {
 
-nome: string = '';
-
-contatos = []
-
-constructor(private contatoService: ContatoService){}
-
 ngOnInit(): void {
-  this.contatoService.pesquisar({nome: this.nome})
-  .then(dados => this.contatos = dados);
+
 }
 
 }

@@ -22,7 +22,7 @@ export interface contatos{
 })
 export class ContatoService {
 
-  contatoUrl = 'http://localhost:8080/api/contatos/nome';
+  contatoUrl = 'http://localhost:8080/api/contatos';
 
   constructor(private http: HttpClient) { }
 
@@ -34,7 +34,9 @@ export class ContatoService {
 
       }
 
-      return firstValueFrom(this.http.get(`${this.contatoUrl}?`, { params }))
+      return firstValueFrom(this.http.get(`${'http://localhost:8080/api/contatos/nome'}?`, { params }))
+
+
   }
 
   adicionar(contato: Contato): Promise<Contato> {

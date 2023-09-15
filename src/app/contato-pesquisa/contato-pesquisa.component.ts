@@ -23,7 +23,8 @@ export class ContatoPesquisaComponent implements OnInit{
   nome: string = '';
 
 
-  lancamentos = [] ;
+  lancamentos: any[] = [];
+
 
   constructor(private contatoService: ContatoService){}
 

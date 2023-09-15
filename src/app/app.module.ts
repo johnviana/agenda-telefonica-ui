@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TableModule } from 'primeng/table';
 
 
+
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
@@ -20,7 +21,6 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-
 
 const routes: Routes = [
   {path: 'contatos', component: ContatoPesquisaComponent},
@@ -47,7 +47,8 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    ToastModule
+    ToastModule,
+
 
 
 
