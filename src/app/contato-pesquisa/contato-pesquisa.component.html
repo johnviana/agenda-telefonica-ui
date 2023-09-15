@@ -1,0 +1,68 @@
+<div class="container">
+  <form autocomplete="off" (ngSubmit)="pesquisar()">
+
+  <div class="grid">
+    <div class="col-12">
+      <h1>Agenda Telefônica</h1>
+    </div>
+
+    <div class="col-12 p-fluid">
+      <label>Nome</label>
+      <input pInputText type="text" name="nome" [(ngModel)]="nome">
+    </div>
+
+    <div class="col-12">
+      <button pButton type="submit"  label="Pesquisar Contato"></button>
+    </div>
+  </div>
+  </form>
+  <div class="grid" class="table">
+    <div class="col-12">
+      <p-table [value]="lancamentos" [paginator]="true" [rows]="5" [responsive]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Celular</th>
+            <th>Telefone</th>
+            <th>Status</th>
+            <th>Favorito</th>
+            <th class="col-acoes"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lancamento>
+          <tr>
+            <td>{{ lancamento.id }}</td>
+            <td>{{ lancamento.nome }}</td>
+            <td>{{ lancamento.email }}</td>
+            <td>{{ lancamento.celular }}</td>
+            <td>{{ lancamento.telefone }}</td>
+            <td>
+              <span class="p-column-title">Status</span>
+              <a href="javascript:;"  [pTooltip]="lancamento.ativo ? 'Desativar' : 'Ativar'" tooltipPosition="top"
+                (click)="alternarStatus(lancamento) " >
+                {{ lancamento.ativo ? 'Ativo' : 'Inativo' }}
+              </a>
+              <td>
+                <span class="p-column-title"></span>
+                <a href="javascript:;" [pTooltip]="lancamento.favorito ? 'Desativar' : 'Ativar'" tooltipPosition="top"
+                (click)="alternarFavorito(lancamento)">
+                  {{ lancamento.favorito ? 'Sim' : 'Não' }}
+                </a>
+            </td>
+            <td class="col-acoes">
+              <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+              [routerLink]="['/contatos', lancamento.id]"></a>
+
+              <button (click)="excluir(lancamento.id)" pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="col-12">
+      <a routerLink="/contatos/cadastro" pButton type="submit" label="Agendar Contato"></a>
+    </div>
+  </div>
+</div>

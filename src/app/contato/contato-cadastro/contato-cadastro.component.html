@@ -1,0 +1,32 @@
+<div class="container">
+  <form #contatoForm="ngForm" autocomplete="off" (ngSubmit)="salvar(contatoForm)">
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Novo'}} Contato</h1>
+      </div>
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Nome</label>
+        <input pInputText name="nome" type="text" [(ngModel)]="contato.nome" #nome="ngModel">
+      </div>
+      <div class="col-12 md:col-6 p-fluid">
+        <label>Email</label>
+        <input pInputText name="email" type="text" [(ngModel)]="contato.email" #email="ngModel">
+      </div>
+
+      <div class="col-6 md:col-3 p-fluid">
+        <label>Celular</label>
+        <input pInputText name="celular" type="text" [(ngModel)]="contato.celular" #celular="ngModel">
+      </div>
+      <div class="col-6 md:col-3 p-fluid">
+        <label>Telefone</label>
+        <input pInputText name="telefone" type="text" [(ngModel)]="contato.telefone" #telefone="ngModel">
+      </div>
+      <div class="col-12 p-fluid" >
+        <button pButton type="submit" label="Salvar"></button>
+        <!-- <button pButton type="button" label="Novo" class="p-button-info"></button> -->
+
+      </div>
+      <a routerLink="/contatos">Voltar para a pesquisa</a>
+    </div>
+  </form>
+</div>
